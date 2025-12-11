@@ -5,6 +5,7 @@ import com.edson.service.FoodItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -19,6 +20,12 @@ public class FoodItemController {
     public ResponseEntity<List<FoodItem>> get() {
         var serviceResponse = service.get();
         return ResponseEntity.ok(serviceResponse);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<FoodItem> getById(@PathVariable Long id) {
+        var responseService = service.getById(id).orElse(null);
+        return ResponseEntity.ok(responseService);
     }
 
     //TODO POST
