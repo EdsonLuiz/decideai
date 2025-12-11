@@ -35,6 +35,11 @@ public class FoodItemController {
         return ResponseEntity.ok(serviceResponse);
     }
     //TODO UPDATE
+    @PutMapping
+    public ResponseEntity<Void> update(@RequestBody FoodItem request) {
+        service.update(request);
+        return ResponseEntity.noContent().build();
+    }
 
     //TODO DELETE
 }
