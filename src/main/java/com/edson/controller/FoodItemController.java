@@ -15,6 +15,11 @@ public class FoodItemController {
     private final FoodItemService service;
 
     //TODO GET
+    @GetMapping
+    public ResponseEntity<List<FoodItem>> get() {
+        var serviceResponse = service.get();
+        return ResponseEntity.ok(serviceResponse);
+    }
 
     //TODO POST
     @PostMapping
