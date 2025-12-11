@@ -32,4 +32,9 @@ public class FoodItemService {
         repository.save(foodItem);
 
     }
+
+    public void delete(Long id) {
+        repository.delete(this.getById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Food not found")));
+    }
 }
